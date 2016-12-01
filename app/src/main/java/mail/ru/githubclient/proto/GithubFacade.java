@@ -19,7 +19,7 @@ public class GithubFacade {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    GitHub github = retrofit.create(GitHub.class);
+    private GitHub github = retrofit.create(GitHub.class);
 
     public void getUsers(String name, Callback<List<User>> users) {
         Call<List<User>> call = github.users(name);
