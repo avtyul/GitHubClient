@@ -8,8 +8,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.Retrofit;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 @EBean(scope = EBean.Scope.Singleton)
 public class GithubFacade {
@@ -20,11 +18,6 @@ public class GithubFacade {
             .baseUrl(API_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
-    public interface GitHub {
-        @GET("/search/users?q={query}")
-        Call<List<User>> users(@Path("query") String query);
-    }
 
     GitHub github = retrofit.create(GitHub.class);
 
